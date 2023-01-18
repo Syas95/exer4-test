@@ -42,6 +42,8 @@ jobs:
         uses: actions/download-artifact@v3.0.0
         with:
           name: build
+      - name: install surge
+        run: npm install surge
       - name: deploy to surge
         run: npm surge --project "." --domain stupid-match.surge.sh
         env:
