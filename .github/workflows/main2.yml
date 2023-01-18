@@ -39,7 +39,7 @@ jobs:
       url: http:/stupid-match.surge.sh
     steps:
       - name: Download the Build artifact
-        uses: actions/downlaod-artifact@v3.0.0
+        uses: actions/download-artifact@v3.0.0
         with:
           name: build
       - name: deploy to surge
