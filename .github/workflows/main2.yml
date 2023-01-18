@@ -36,16 +36,14 @@ jobs:
     needs: build
     environment:
       name: production
-      url: http:/stupid-match.surge.sh
+      url: http://stupid-match.surge.sh
     steps:
       - name: Download the Build artifact
         uses: actions/download-artifact@v3.0.0
         with:
           name: build
-      - name: install surge
-        run: npm install surge
       - name: deploy to surge
-        run: npm surge --project "." --domain stupid-match.surge.sh
+        run: npx surge --project '.' --domain stupid-match.surge.sh
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
